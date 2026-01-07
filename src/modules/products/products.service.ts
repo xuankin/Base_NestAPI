@@ -1,7 +1,7 @@
 import {} from '@nestjs/common';
 import { Injectable } from '@nestjs/common';
 import { Product } from 'src/models/product.model';
-
+import { ProductDto } from 'src/dto/product.dto';
 @Injectable()
 export class ProductsService {
   private products: Product[] = [
@@ -11,11 +11,11 @@ export class ProductsService {
   getAllProducts(): Product[] {
     return this.products;
   }
-  createProduct(): string {
-    return 'Product created';
+  createProduct(productDto: ProductDto): ProductDto {
+    return productDto;
   }
   getProductById(id: number): Product | undefined {
-    return this.products.find((product) => product.id === Number(id);
+    return this.products.find((product) => product.id === Number(id));
   }
   updateProduct(): string {
     return 'Product updated';
